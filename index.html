@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="css/libraries/bootstrap.min.css">
+
+    <!-- Notyf CSS CDN -->
+    <link rel="stylesheet" href="css/libraries/notyf.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="app" class="container-fluid p-0" v-cloak>
+        <div style="position: fixed;z-index: 2;width:100%;">
+            <div class="header">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path fill="#fffefe"
+                        d="M9 1H6a2 2 0 0 0-2 2v2.205a5.5 5.5 0 0 1 4.666 9.791H12a2 2 0 0 0 2-2V6.001h-3.5A1.5 1.5 0 0 1 9 4.5zm4.997 4h-3.498a.5.5 0 0 1-.5-.5V1h.01zM10 10.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0m-4.854 2.353l.003.003a.5.5 0 0 0 .348.144h.006a.5.5 0 0 0 .35-.146l2-2a.5.5 0 0 0-.707-.708L6 11.293V8.5a.5.5 0 0 0-1 0v2.793l-1.146-1.147a.5.5 0 0 0-.708.708z" />
+                </svg>
+                Grocery List Generator
+                <div class="add-to-cart-counter" v-on:click="redirectToProductListPage()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="#fff"
+                            d="M0 1h4.764l.545 2h18.078l-3.666 11H7.78l-.5 2H22v2H4.72l1.246-4.989L3.236 3H0zm4 20a2 2 0 1 1 4 0a2 2 0 0 1-4 0m14 0a2 2 0 1 1 4 0a2 2 0 0 1-4 0" />
+                    </svg> Products
+                    <div>{{cartCount}}</div>
+                </div>
+            </div>
+            <div class="filter-container">
+                <input type="search" placeholder="Search Here..." v-model="searchQuery">
+                <button class="print-pdf-btn" v-on:click="clearAll()"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path fill="#fffefe"
+                            d="M19.91 15.51h-4.53a1 1 0 0 0 0 2h2.4A8 8 0 0 1 4 12a1 1 0 0 0-2 0a10 10 0 0 0 16.88 7.23V21a1 1 0 0 0 2 0v-4.5a1 1 0 0 0-.97-.99M12 2a10 10 0 0 0-6.88 2.77V3a1 1 0 0 0-2 0v4.5a1 1 0 0 0 1 1h4.5a1 1 0 0 0 0-2h-2.4A8 8 0 0 1 20 12a1 1 0 0 0 2 0A10 10 0 0 0 12 2" />
+                    </svg>
+                    Clear
+                </button>
+                <button class="generate-pdf-btn" v-on:click="generatePDF()"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path fill="#fffefe" d="M5 20h14v-2H5zM19 9h-4V3H9v6H5l7 7z" />
+                    </svg>
+                    Generate PDF
+                </button>
+                Total Products : {{totalProductCount}}
+            </div>
+        </div>
+        <div class="row p-0 m-0" style="padding-top: 140px !important;">
+            <div class="col-12">
+                <div class="row p-0">
+                    <div class="col-12 col-md-6 col-xl-3 mb-4" v-for="val in filteredProducts" :key="val.id">
+                        <div class="card product-card" :class="{'in-cart': isInCart(val.id)}">
+                            <div class="product-card-header">
+                                <img :src="val.imageUrl" alt="product-image">
+                            </div>
+                            <div class="product-card-body">
+                                {{ val.tamilName }}
+                            </div>
+                            <div class="seperator"></div>
+                            <div class="product-card-footer">
+                                <div class="left">
+                                    <button @click="decrementQty(val)">-</button>
+                                    <input class="counter-box" type="text" v-model="val.qty"
+                                        @blur="handleQtyInput($event, val)" style="width:50px" />
+
+                                    <button @click="incrementQty(val)">+</button>
+                                </div>
+                                <div class="right">
+                                    <select v-model="val.size" @change="syncSizeWithCart(val)">
+                                        <option value="">Select Size</option>
+                                        <option v-for="sub in sizeValuesForDrpDwn" :value="sub">{{ sub }}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Toggle Add / Remove Cart Button -->
+                            <button v-if="!isInCart(val.id)" class="addto-cart-btn flex" @click="addToCart(val)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path fill="#fff"
+                                        d="M0 1h4.764l.545 2h18.078l-3.666 11H7.78l-.5 2H22v2H4.72l1.246-4.989L3.236 3H0zm4 20a2 2 0 1 1 4 0a2 2 0 0 1-4 0m14 0a2 2 0 1 1 4 0a2 2 0 0 1-4 0" />
+                                </svg>
+                                Add to Cart
+                            </button>
+
+                            <button v-else class="remove-cart-btn flex" @click="removeFromCart(val.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                    <path fill="#fff"
+                                        d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0m-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1" />
+                                </svg>
+                                Remove from Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS CDN -->
+    <script src="script/libraries/jquery-3.7.1.min.js"></script>
+
+    <!-- Moment JS CDN -->
+    <script src="script/libraries/moment.min.js"></script>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="script/libraries/bootstrap.bundle.min.js"></script>
+
+    <!-- Notyf JS CDN -->
+    <script src="script/libraries/notyf.min.js"></script>
+
+    <!-- Html To PDF JS CDN -->
+    <script src="script/libraries/html2pdf.bundle.min.js"></script>
+
+    <!-- Vue JS CDN -->
+    <script src="script/libraries/vue@2.js"></script>
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>

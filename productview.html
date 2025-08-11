@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        @font-face {
+            font-family: 'Outfit';
+            src: url('/app/fonts/Outfit-Medium.ttf') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            src: url('/app/fonts/Outfit-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Outfit';
+            font-weight: normal;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        .container {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            border-bottom: 1px solid lightgrey;
+        }
+
+        table th,
+        table td {
+            text-align: left;
+            font-size: 18px;
+            padding: 10px 5px;
+        }
+
+        @page {
+            margin-top: 40px !important;
+        }
+
+        body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+
+    <div class="container" id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th style='width:5%;'>Sl.No</th>
+                    <th style='width:60%;'>Product</th>
+                    <th style='width:10%;'>Qty / Size</th>
+                    <th style='width:10%;'>Size</th>
+                    <th style='width:15%;'>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(val, index) in selectedProducts" :key="val.id">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ val.name }}</td>
+                    <td>{{ val.qty }}</td>
+                    <td>{{ val.size }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Vue JS CDN -->
+    <script src="script/libraries/vue@2.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                selectedProducts: [],
+                lastCart: ''
+            },
+            created() {
+                this.loadCart();
+
+                // Listen for storage change from other tabs
+                window.addEventListener('storage', (event) => {
+                    if (event.key === 'cart') {
+                        this.loadCart();
+                    }
+                });
+
+                // Same-tab change detection using polling
+                setInterval(() => {
+                    let currentCart = localStorage.getItem('cart');
+                    if (currentCart !== this.lastCart) {
+                        this.loadCart();
+                    }
+                }, 500); // checks every 0.5 sec
+            },
+            methods: {
+                loadCart() {
+                    let products = localStorage.getItem('cart');
+                    this.lastCart = products;
+                    this.selectedProducts = products ? JSON.parse(products) : [];
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
