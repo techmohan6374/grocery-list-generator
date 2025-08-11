@@ -42,8 +42,9 @@
                     </svg>
                     Clear
                 </button>
-                <button class="generate-pdf-btn" v-on:click="generatePDF()"><svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24">
+                <button class="generate-pdf-btn" v-on:click="generatePDF()">
+                    <div class="loader" style="display: none;"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="#fffefe" d="M5 20h14v-2H5zM19 9h-4V3H9v6H5l7 7z" />
                     </svg>
                     Generate PDF
@@ -100,6 +101,12 @@
                 </div>
             </div>
         </div>
+        <button class="go-above-btn" id="goAboveBtn" v-on:click="goTop()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" stroke="#fffefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 5v14m7-7l-7-7l-7 7" />
+            </svg>
+        </button>
     </div>
 
     <!-- Jquery JS CDN -->

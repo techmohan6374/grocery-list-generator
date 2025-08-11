@@ -9,7 +9,7 @@ var vm = new Vue({
     data: {
         searchQuery: "",
         sizeValuesForDrpDwn: [
-            'சரம்', 'கிலோ', 'கிராம்', 'மில்லி லிட்டர்', 'பெரியது', 'சிறியது', 'பாக்ஸ்', 'பெரிய பாக்ஸ்', 'சிறிய பாக்ஸ்'
+            'சரம்', 'கிலோ', 'கிராம்', 'மில்லி லிட்டர்', 'பெரியது', 'சிறியது', 'பாக்ஸ்', 'பெரிய பாக்ஸ்', 'சிறிய பாக்ஸ்', 'பாக்கெட்'
         ],
         selectedProducts: [],
         mainProducts: [
@@ -131,6 +131,12 @@ var vm = new Vue({
         }
     },
     methods: {
+        goTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // smooth animation
+            });
+        },
         clearAll() {
             this.selectedProducts = [];
             localStorage.removeItem('cart');
@@ -238,83 +244,170 @@ var vm = new Vue({
             return isNaN(parsed) ? 1 : parsed;
         },
         generatePDF: function () {
+            // 1. If no products, show Notyf error and stop
+            if (!this.selectedProducts || this.selectedProducts.length === 0) {
+                notyf.error("No products available to generate PDF");
+                return;
+            }
+
+            const button = document.querySelector(".generate-pdf-btn");
+            const loader = button.querySelector(".loader");
+            const svgIcon = button.querySelector("svg");
+
+            loader.style.display = "inline-block";
+            svgIcon.style.display = "none";
+
             const monthName = moment().format('MMMM').toUpperCase();
+            const day = moment().format('DD');
+            const year = moment().format('YYYY');
+
+            // Tamil month mapping
+            let tamilMonth = '';
+            switch (monthName) {
+                case 'JANUARY': tamilMonth = 'ஜனவரி'; break;
+                case 'FEBRUARY': tamilMonth = 'பிப்ரவரி'; break;
+                case 'MARCH': tamilMonth = 'மார்ச்'; break;
+                case 'APRIL': tamilMonth = 'ஏப்ரல்'; break;
+                case 'MAY': tamilMonth = 'மே'; break;
+                case 'JUNE': tamilMonth = 'ஜூன்'; break;
+                case 'JULY': tamilMonth = 'ஜூலை'; break;
+                case 'AUGUST': tamilMonth = 'ஆகஸ்ட்'; break;
+                case 'SEPTEMBER': tamilMonth = 'செப்டம்பர்'; break;
+                case 'OCTOBER': tamilMonth = 'அக்டோபர்'; break;
+                case 'NOVEMBER': tamilMonth = 'நவம்பர்'; break;
+                case 'DECEMBER': tamilMonth = 'டிசம்பர்'; break;
+            }
+
+            const dateInTamil = `${day}-${tamilMonth}-${year}`;
 
             const container = document.createElement("div");
             container.classList.add("container");
 
             const style = document.createElement("style");
             style.textContent = `
-                .container {
-                    width: 100%;
-                    height: auto;
-                    overflow: visible !important;
-                }
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                table tr{
-                    border-bottom:1px solid lightgrey;
-                }
-                table th, table td {
-                    text-align: left;
-                    font-size: 14px;
-                    padding: 10px 5px;
-                }
-                @page {
-                    margin-top: 40px !important;
-                }
-                body {
-                    -webkit-print-color-adjust: exact;
-                    print-color-adjust: exact;
-                }
-            `;
+        .container {
+            width: 100%;
+            height: auto;
+            overflow: visible !important;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            page-break-after: always;
+        }
+        tr {
+            border-bottom: 1px solid lightgrey;
+        }
+        table th, table td {
+            text-align: left;
+            font-size: 14px;
+            padding: 10px 5px;
+        }
+        @page {
+            margin-top: 40px !important;
+        }
+        body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .header-info {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    `;
             document.head.appendChild(style);
 
-            // ✅ Sample JSON data
             const products = this.selectedProducts;
+            let currentIndex = 0;
+            let pageIndex = 0;
+            const rowsPerPage = 33;
 
-            const table = document.createElement("table");
-            const thead = document.createElement("thead");
-            thead.innerHTML = `
-                <tr>
-                    <th style='width:5%;'>Sl.No</th>
-                    <th style='width:60%;'>Product</th>
-                    <th style='width:10%;'>Qty / Size</th>
-                    <th style='width:10%;'>Size</th>
-                    <th style='width:15%;'>Price</th>
-                </tr>
+            while (currentIndex < products.length) {
+                const pageDiv = document.createElement("div");
+
+                if (pageIndex === 0) {
+                    const headerInfo = document.createElement("div");
+                    headerInfo.classList.add("header-info");
+                    headerInfo.innerHTML = `
+                <div class="header-container">
+                    <div class="top" style="display:flex;justify-content:space-between;align-items:center;">
+                        <div>Name : மஞ்சுளா</div>
+                        <div>Date : ${dateInTamil}</div>
+                    </div>
+                    <div class="bottom">
+                        <div>Phone Number : 75488 11198</div>
+                    </div>
+                </div>
             `;
-            table.appendChild(thead);
+                    pageDiv.appendChild(headerInfo);
+                }
 
-            const tbody = document.createElement("tbody");
+                const table = document.createElement("table");
+                const thead = document.createElement("thead");
+                thead.innerHTML = `
+            <tr>
+                <th style='width:5%;'>Sl.No</th>
+                <th style='width:50%;'>Product</th>
+                <th style='width:10%;'>Qty / Size</th>
+                <th style='width:20%;'>Size</th>
+                <th style='width:15%;'>Price</th>
+            </tr>
+        `;
+                table.appendChild(thead);
 
-            products.forEach((item, index) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${item.name}</td>
-                    <td>${item.qty}</td>
-                    <td>${item.size}</td>
-                    <td></td>
-                `;
-                tbody.appendChild(row);
-            });
+                const tbody = document.createElement("tbody");
+                products.slice(currentIndex, currentIndex + rowsPerPage).forEach((item, index) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                <td>${currentIndex + index + 1}</td>
+                <td>${item.name}</td>
+                <td>${item.qty}</td>
+                <td>${item.size}</td>
+                <td></td>
+            `;
+                    tbody.appendChild(row);
+                });
 
-            table.appendChild(tbody);
-            container.appendChild(table);
+                table.appendChild(tbody);
+                pageDiv.appendChild(table);
+                container.appendChild(pageDiv);
+
+                currentIndex += rowsPerPage;
+                pageIndex++;
+            }
 
             html2pdf()
                 .from(container)
                 .set({
-                    margin: [10, 10, 10, 10], // top, right, bottom, left
+                    margin: [10, 10, 10, 10],
                     filename: `Grocery_List_(${monthName}).pdf`,
                     image: { type: 'jpeg', quality: 1 },
-                   html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+                    html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
                     jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' }
                 })
-                .save();
-        },
+                .save()
+                .then(() => {
+                    loader.style.display = "none";
+                    svgIcon.style.display = "inline-block";
+                    notyf.success("PDF downloaded successfully");
+                })
+                .catch(() => {
+                    loader.style.display = "none";
+                    svgIcon.style.display = "inline-block";
+                    notyf.error("Error generating PDF");
+                });
+        }
     },
+});
+
+const btn = document.getElementById('goAboveBtn');
+
+// Show/hide button on scroll
+window.addEventListener('scroll', function () {
+    if (window.scrollY > 100) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
 });

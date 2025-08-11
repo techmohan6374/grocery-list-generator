@@ -132,6 +132,9 @@
 
 .filter-container .generate-pdf-btn {
     background-color: #ff2c2d !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .filter-container .generate-pdf-btn svg {
@@ -276,6 +279,57 @@
 .product-card .remove-cart-btn svg {
     width: 20px;
     height: 20px;
+}
+
+.loader {
+    margin-right: 4px;
+    width: 22px;
+    --b: 4px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-mask:
+        repeating-conic-gradient(#0000 0deg, #000 1deg 70deg, #0000 71deg 90deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: l5 1s infinite;
+}
+
+@keyframes l5 {
+    to {
+        transform: rotate(.5turn)
+    }
+}
+
+.go-above-btn {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border: 4px solid #7eb631;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    display: none;
+}
+
+.go-above-btn:hover {
+    transform: scale(1.1);
+}
+
+.go-above-btn svg {
+    width: 25px;
+    height: 25px;
 }
 
 @media screen and (min-width:1024px) {
