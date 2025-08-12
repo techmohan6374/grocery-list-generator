@@ -161,17 +161,8 @@ var vm = new Vue({
         handleQtyInput(event, product) {
             const input = event.target.value.trim();
 
-            const isFraction = /^(\d+)\s*\/\s*(\d+)$/.test(input);
-            const isDecimal = /^(\d+(\.\d+)?)$/.test(input);
-
-            if (input === '') {
-                product.qty = '1'; // fallback if empty
-            } else if (isFraction || isDecimal) {
-                product.qty = input;
-            } else {
-                notyf.error('Invalid quantity format. Use numbers or fractions like 1/2');
-                product.qty = '1';
-            }
+            // If empty, default to '1'
+            product.qty = input === '' ? '1' : input;
 
             this.syncQtyWithCart(product);
         },
@@ -234,12 +225,26 @@ var vm = new Vue({
         parseQty(qtyStr) {
             if (typeof qtyStr !== 'string') return Number(qtyStr) || 1;
 
-            if (qtyStr.includes('/')) {
-                const [num, denom] = qtyStr.split('/').map(Number);
-                if (!isNaN(num) && !isNaN(denom) && denom !== 0) {
-                    return num / denom;
-                }
+            qtyStr = qtyStr.trim();
+
+            // Mixed number (e.g., 1 - 1/2)
+            let mixedMatch = qtyStr.match(/^(\d+)\s*-\s*(\d+)\s*\/\s*(\d+)$/);
+            if (mixedMatch) {
+                const whole = Number(mixedMatch[1]);
+                const num = Number(mixedMatch[2]);
+                const denom = Number(mixedMatch[3]);
+                if (denom !== 0) return whole + (num / denom);
             }
+
+            // Fraction only (e.g., 1/2)
+            let fractionMatch = qtyStr.match(/^(\d+)\s*\/\s*(\d+)$/);
+            if (fractionMatch) {
+                const num = Number(fractionMatch[1]);
+                const denom = Number(fractionMatch[2]);
+                if (denom !== 0) return num / denom;
+            }
+
+            // Decimal or whole number
             const parsed = parseFloat(qtyStr);
             return isNaN(parsed) ? 1 : parsed;
         },
