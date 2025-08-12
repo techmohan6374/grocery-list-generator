@@ -411,3 +411,21 @@ window.addEventListener('scroll', function () {
         btn.style.display = 'none';
     }
 });
+
+document.querySelectorAll('.card').forEach(card => {
+    const img = card.querySelector('img');
+    const loader = card.querySelector('.img-loader');
+
+    // Initially show loader and hide image
+    loader.style.display = 'block';
+    img.style.display = 'none';
+
+    img.addEventListener('load', () => {
+        loader.style.display = 'none';
+        img.style.display = 'block';
+    });
+
+    img.addEventListener('error', () => {
+        loader.textContent = "Failed to load";
+    });
+});
