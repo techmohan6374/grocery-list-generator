@@ -65,7 +65,7 @@
                     <div class="col-12 col-md-6 col-xl-3 mb-4" v-for="val in filteredProducts" :key="val.id">
                         <div class="card product-card" :class="{'in-cart': isInCart(val.id)}">
                             <div class="product-card-header">
-                                <img :src="val.imageUrl" alt="product-image" style="display:none;">
+                                <img :src="val.imageUrl" alt="product-image">
                                 <div class="img-loader"></div>
                             </div>
                             <div class="product-card-body">

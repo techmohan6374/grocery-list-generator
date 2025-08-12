@@ -196,6 +196,7 @@
     border-radius: 5px;
     object-fit: cover;
     transition: 0.4s;
+    display: none;
 }
 
 .product-card .product-card-header img:hover {
