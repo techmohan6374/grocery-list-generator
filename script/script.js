@@ -131,6 +131,17 @@ var vm = new Vue({
         }
     },
     methods: {
+        hideLoader(event) {
+            const img = event.target;
+            const loader = img.nextElementSibling;
+            if (loader) loader.style.display = 'none';
+            img.style.display = 'block';
+        },
+        showError(event) {
+            const img = event.target;
+            const loader = img.nextElementSibling;
+            if (loader) loader.textContent = "Failed to load";
+        },
         goTop() {
             window.scrollTo({
                 top: 0,

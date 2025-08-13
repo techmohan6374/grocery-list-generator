@@ -61,12 +61,20 @@
         </div>
         <div class="row p-0 m-0 main-product-div">
             <div class="col-12">
-                <div class="row p-0">
+                <!-- Show message when no products -->
+                <div v-if="filteredProducts.length === 0"
+                    style="text-align:center; padding:50px; font-weight:bold; font-size:18px;display: flex;flex-direction: column;gap:10px;justify-content: center;align-items: center;">
+                    <img src="images/common/no-products.png" alt="" style="width:300px;">
+                    No Product Available
+                </div>
+
+                <div class="row p-0" v-else>
                     <div class="col-12 col-md-6 col-xl-3 mb-4" v-for="val in filteredProducts" :key="val.id">
                         <div class="card product-card" :class="{'in-cart': isInCart(val.id)}">
                             <div class="product-card-header">
-                                <img :src="val.imageUrl" alt="product-image">
-                                <div class="img-loader"></div>
+                                <img :src="val.imageUrl" alt="product-image" @load="hideLoader($event)"
+                                    @error="showError($event)">
+                                <div class="img-loader">Loading...</div>
                             </div>
                             <div class="product-card-body">
                                 {{ val.tamilName }}
@@ -89,18 +97,9 @@
 
                             <!-- Toggle Add / Remove Cart Button -->
                             <button v-if="!isInCart(val.id)" class="addto-cart-btn flex" @click="addToCart(val)">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path fill="#fff"
-                                        d="M0 1h4.764l.545 2h18.078l-3.666 11H7.78l-.5 2H22v2H4.72l1.246-4.989L3.236 3H0zm4 20a2 2 0 1 1 4 0a2 2 0 0 1-4 0m14 0a2 2 0 1 1 4 0a2 2 0 0 1-4 0" />
-                                </svg>
                                 Add to Cart
                             </button>
-
                             <button v-else class="remove-cart-btn flex" @click="removeFromCart(val.id)">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                    <path fill="#fff"
-                                        d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0m-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1" />
-                                </svg>
                                 Remove from Cart
                             </button>
                         </div>
@@ -108,6 +107,7 @@
                 </div>
             </div>
         </div>
+
         <button class="go-above-btn" id="goAboveBtn" v-on:click="goTop()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path fill="none" stroke="#fffefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -140,7 +140,7 @@
     <script src="script/script.js"></script>
 
     <script>
-        DisableDevtool();
+        // DisableDevtool();
     </script>
 </body>
 
