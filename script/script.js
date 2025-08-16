@@ -113,6 +113,15 @@ var vm = new Vue({
         const savedCart = localStorage.getItem('cart');
         if (savedCart) {
             this.selectedProducts = JSON.parse(savedCart);
+
+            // Sync values back into mainProducts
+            this.selectedProducts.forEach(saved => {
+                let main = this.mainProducts.find(p => p.id === saved.id);
+                if (main) {
+                    main.qty = saved.qty;
+                    main.size = saved.size;
+                }
+            });
         }
     },
     watch: {
