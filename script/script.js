@@ -106,6 +106,7 @@ var vm = new Vue({
             { id: 91, product: 'Asafoetida pieces', size: '', qty: '1', imageUrl: 'images/products/91.jpg', tamilName: 'பெருங்காயம் கட்டி' },
             { id: 92, product: 'All Out Liquid', size: '', qty: '1', imageUrl: 'images/products/92.jpg', tamilName: 'All Out Liquid' },
             { id: 93, product: 'Idly Rice', size: '', qty: '1', imageUrl: 'images/products/93.jpg', tamilName: 'இட்லி அரிசி' },
+            { id: 94, product: 'Pappad', size: '', qty: '1', imageUrl: 'images/products/94.jpg', tamilName: 'அப்பளம்' },
         ],
     },
     created() {
