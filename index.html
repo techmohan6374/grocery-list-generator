@@ -80,17 +80,24 @@
                             </div>
                             <div class="seperator"></div>
                             <div class="product-card-footer">
-                                <div class="left">
+                                <div class="rows-2">
+                                    <div class="left">
+                                        <input type="text" placeholder="Enter Size Value" v-model="val.sizeValue"
+                                            @input="syncSizeWithCart(val)" />
+                                    </div>
+                                    <div class="right">
+                                        <select v-model="val.sizeUnit" @change="syncSizeWithCart(val)">
+                                            <option value="">Select Size</option>
+                                            <option v-for="sub in sizeValuesForDrpDwn" :value="sub">{{ sub }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="rows-1">
                                     <button @click="decrementQty(val)">-</button>
-                                    <input class="counter-box" type="text" v-model="val.qty"
+                                    <input class="counter-box" type="number" min="1" v-model.number="val.qty"
                                         @blur="handleQtyInput($event, val)" style="width:50px" />
                                     <button @click="incrementQty(val)">+</button>
-                                </div>
-                                <div class="right">
-                                    <select v-model="val.size" @change="syncSizeWithCart(val)">
-                                        <option value="">Select Size</option>
-                                        <option v-for="sub in sizeValuesForDrpDwn" :value="sub">{{ sub }}</option>
-                                    </select>
                                 </div>
                             </div>
 

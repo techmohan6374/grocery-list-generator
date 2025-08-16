@@ -13,114 +13,114 @@ var vm = new Vue({
         ],
         selectedProducts: [],
         mainProducts: [
-            { id: 1, product: 'Sensodent-K Toothpaste', size: '', qty: '1', imageUrl: 'images/products/1.jpg', tamilName: 'Sensodent-K Toothpaste' },
-            { id: 2, product: 'Closeup Toothpaste', size: '', qty: '1', imageUrl: 'images/products/2.jpg', tamilName: 'Closeup Toothpaste' },
-            { id: 3, product: 'Mysore Sandal Soap', size: '', qty: '1', imageUrl: 'images/products/3.jpg', tamilName: 'Mysore Sandal சோப்பு' },
-            { id: 4, product: 'All Clear Shampoo', size: '', qty: '1', imageUrl: 'images/products/4.jpg', tamilName: 'All Clear Shampoo' },
-            { id: 5, product: 'Rin Soap', size: '', qty: '1', imageUrl: 'images/products/5.jpg', tamilName: 'Rin சோப்பு' },
-            { id: 6, product: 'Almond', size: '', qty: '1', imageUrl: 'images/products/6.jpg', tamilName: 'பாதாம்' },
-            { id: 7, product: 'Cashewnut', size: '', qty: '1', imageUrl: 'images/products/7.jpg', tamilName: 'முந்திரி' },
-            { id: 8, product: 'Rin soap Powder', size: '', qty: '1', imageUrl: 'images/products/8.jpg', tamilName: 'Rin சோப்பு தூள்' },
-            { id: 9, product: 'Turmeric powder', size: '', qty: '1', imageUrl: 'images/products/9.jpg', tamilName: 'மஞ்சள் தூள்' },
-            { id: 10, product: 'GRB Ghee', size: '', qty: '1', imageUrl: 'images/products/10.jpg', tamilName: 'நெய்' },
-            { id: 11, product: 'USHA Oil', size: '', qty: '1', imageUrl: 'images/products/11.jpg', tamilName: 'உஷா ஆயில்' },
-            { id: 12, product: 'Vim Soap', size: '', qty: '1', imageUrl: 'images/products/12.jpg', tamilName: 'Vim சோப்பு' },
-            { id: 13, product: 'Hamam soap', size: '', qty: '1', imageUrl: 'images/products/13.jpg', tamilName: 'Hamam சோப்பு' },
-            { id: 14, product: 'Chick white Shampoo', size: '', qty: '1', imageUrl: 'images/products/14.jpg', tamilName: 'Chick white Shampoo' },
-            { id: 15, product: 'Roasted Gram', size: '', qty: '1', imageUrl: 'images/products/15.jpg', tamilName: 'பொட்டுகடலை' },
-            { id: 16, product: 'Stay free', size: '', qty: '1', imageUrl: 'images/products/16.jpg', tamilName: 'Stay free' },
-            { id: 17, product: 'Narasus coffee powder', size: '', qty: '1', imageUrl: 'images/products/17.jpg', tamilName: 'Narasus காபி தூள்' },
-            { id: 18, product: 'AASHIRVADA ATTA', size: '', qty: '1', imageUrl: 'images/products/18.jpg', tamilName: 'கோதுமை மாவு' },
-            { id: 19, product: 'Mustard', size: '', qty: '1', imageUrl: 'images/products/19.jpg', tamilName: 'கடுகு' },
-            { id: 20, product: 'LG asafoetida', size: '', qty: '1', imageUrl: 'images/products/20.jpg', tamilName: 'LG பெருங்காயம்' },
-            { id: 21, product: 'pigeon pea', size: '', qty: '1', imageUrl: 'images/products/21.jpg', tamilName: 'துவரம் பருப்பு' },
-            { id: 22, product: 'Johnson baby powder', size: '', qty: '1', imageUrl: 'images/products/22.jpg', tamilName: 'Johnson baby powder' },
-            { id: 23, product: 'Johnson baby soap', size: '', qty: '1', imageUrl: 'images/products/23.jpg', tamilName: 'Johnson baby சோப்பு' },
-            { id: 24, product: 'Gram flour', size: '', qty: '1', imageUrl: 'images/products/24.jpg', tamilName: 'கடலை மாவு' },
-            { id: 25, product: 'moong dal', size: '', qty: '1', imageUrl: 'images/products/25.jpg', tamilName: 'பாசிபருப்பு' },
-            { id: 26, product: 'Groundnut', size: '', qty: '1', imageUrl: 'images/products/26.jpg', tamilName: 'நிலக்கடலை' },
-            { id: 27, product: 'wheat Rava', size: '', qty: '1', imageUrl: 'images/products/27.jpg', tamilName: 'கோதுமை ரவை' },
-            { id: 28, product: 'Black Rice', size: '', qty: '1', imageUrl: 'images/products/28.jpg', tamilName: 'கருப்பு கவுனி அரிசி' },
-            { id: 29, product: 'Rava', size: '', qty: '1', imageUrl: 'images/products/29.jpg', tamilName: 'ரவை' },
-            { id: 30, product: 'Uma semiya', size: '', qty: '1', imageUrl: 'images/products/30.jpg', tamilName: 'சேமியா' },
-            { id: 31, product: 'Corn flour', size: '', qty: '1', imageUrl: 'images/products/31.jpg', tamilName: 'கார்ன் பிளவர்' },
-            { id: 32, product: 'Maida', size: '', qty: '1', imageUrl: 'images/products/32.jpg', tamilName: 'மைதா மாவு' },
-            { id: 33, product: 'Rice flour', size: '', qty: '1', imageUrl: 'images/products/33.jpg', tamilName: 'அரிசி மாவு' },
-            { id: 34, product: 'Muyal castor oil', size: '', qty: '1', imageUrl: 'images/products/34.jpg', tamilName: 'முயல் விளக்கெண்ணெய்' },
-            { id: 35, product: 'Vicco turmeric', size: '', qty: '1', imageUrl: 'images/products/35.jpg', tamilName: 'Vicco turmeric' },
-            { id: 36, product: 'Sakthi curry masala', size: '', qty: '1', imageUrl: 'images/products/36.jpg', tamilName: 'கறி மசால் பொடி' },
-            { id: 37, product: 'Sakthi chicken masala', size: '', qty: '1', imageUrl: 'images/products/37.jpg', tamilName: 'சிக்கன் மசாலா தூள்' },
-            { id: 38, product: 'Sakthi Mutton masala', size: '', qty: '1', imageUrl: 'images/products/38.jpg', tamilName: 'மட்டன் மசாலா தூள்' },
-            { id: 39, product: 'Sakthi Biriyani masala', size: '', qty: '1', imageUrl: 'images/products/39.jpg', tamilName: 'பிரியாணி மசாலா தூள்' },
-            { id: 40, product: 'Green Gram', size: '', qty: '1', imageUrl: 'images/products/40.jpg', tamilName: 'பச்சை பயிறு' },
-            { id: 41, product: 'Green Peas', size: '', qty: '1', imageUrl: 'images/products/41.jpg', tamilName: 'பச்சை பட்டாணி' },
-            { id: 42, product: 'White peas', size: '', qty: '1', imageUrl: 'images/products/42.jpg', tamilName: 'வெள்ளை பட்டாணி' },
-            { id: 43, product: 'black beans', size: '', qty: '1', imageUrl: 'images/products/43.jpg', tamilName: 'கருப்பு பீன்ஸ்' },
-            { id: 44, product: 'White chickpeas', size: '', qty: '1', imageUrl: 'images/products/44.jpg', tamilName: 'பெரிய வெள்ளை மூக்கடலை' },
-            { id: 45, product: 'Red chickpeas', size: '', qty: '1', imageUrl: 'images/products/45.jpg', tamilName: 'சிறிய சிவப்பு மூக்கடலை' },
-            { id: 46, product: 'VVD Coconut Oil', size: '', qty: '1', imageUrl: 'images/products/46.jpg', tamilName: 'VVD தேங்காய் எண்ணெய்' },
-            { id: 47, product: 'Cardamom', size: '', qty: '1', imageUrl: 'images/products/47.jpg', tamilName: 'ஏலக்காய்' },
-            { id: 48, product: 'Garlic', size: '', qty: '1', imageUrl: 'images/products/48.jpg', tamilName: 'பூண்டு' },
-            { id: 49, product: 'Dettol', size: '', qty: '1', imageUrl: 'images/products/49.jpg', tamilName: 'Dettol' },
-            { id: 50, product: 'Pithambari', size: '', qty: '1', imageUrl: 'images/products/50.jpg', tamilName: 'Pithambari' },
-            { id: 51, product: 'Deepam Oil', size: '', qty: '1', imageUrl: 'images/products/51.jpg', tamilName: 'தீபம் எண்ணெய்' },
-            { id: 52, product: 'Broken Urad dhal', size: '', qty: '1', imageUrl: 'images/products/52.jpg', tamilName: 'உடைத்த உளுத்தம் பருப்பு' },
-            { id: 53, product: 'Urd dhal', size: '', qty: '1', imageUrl: 'images/products/53.jpg', tamilName: 'உளுத்தம் பருப்பு' },
-            { id: 54, product: 'Tamarind', size: '', qty: '1', imageUrl: 'images/products/54.jpg', tamilName: 'புளி' },
-            { id: 55, product: 'Rock salt', size: '', qty: '1', imageUrl: 'images/products/55.jpg', tamilName: 'கல் உப்பு' },
-            { id: 56, product: 'Powder salt', size: '', qty: '1', imageUrl: 'images/products/56.jpg', tamilName: 'தூள் உப்பு' },
-            { id: 57, product: 'Bengal gram dal', size: '', qty: '1', imageUrl: 'images/products/57.jpg', tamilName: 'கள்ளப்பருப்பு' },
-            { id: 58, product: 'Poha', size: '', qty: '1', imageUrl: 'images/products/58.jpg', tamilName: 'அவுல்' },
-            { id: 59, product: 'Green Rice', size: '', qty: '1', imageUrl: 'images/products/59.jpg', tamilName: 'பச்சரிசி' },
-            { id: 60, product: 'Gokul Santol Powder', size: '', qty: '1', imageUrl: 'images/products/60.jpg', tamilName: 'Gokul Santol Powder' },
-            { id: 61, product: 'Spinz BB Powder', size: '', qty: '1', imageUrl: 'images/products/61.jpg', tamilName: 'Spinz BB Powder' },
-            { id: 62, product: 'VIP Hair Colour Dye', size: '', qty: '1', imageUrl: 'images/products/62.jpg', tamilName: 'VIP Hair Colour Dye' },
-            { id: 63, product: 'Bay Leaf', size: '', qty: '1', imageUrl: 'images/products/63.jpg', tamilName: 'பிரியாணி இலை' },
-            { id: 64, product: 'cinnamon', size: '', qty: '1', imageUrl: 'images/products/64.jpg', tamilName: 'பட்டை' },
-            { id: 65, product: 'Clove', size: '', qty: '1', imageUrl: 'images/products/65.jpg', tamilName: 'லவங்கம்' },
-            { id: 66, product: 'Star Anise', size: '', qty: '1', imageUrl: 'images/products/66.jpg', tamilName: 'அன்னாசிப் பூ' },
-            { id: 67, product: 'Black Stone Flower', size: '', qty: '1', imageUrl: 'images/products/67.jpg', tamilName: 'கல்பசி' },
-            { id: 68, product: 'Coriander Seeds', size: '', qty: '1', imageUrl: 'images/products/68.jpg', tamilName: 'வர கொத்தமல்லி' },
-            { id: 69, product: 'Harpic Red', size: '', qty: '1', imageUrl: 'images/products/69.jpg', tamilName: 'Harpic Red' },
-            { id: 70, product: 'Harpic Blue', size: '', qty: '1', imageUrl: 'images/products/70.jpg', tamilName: 'Harpic Blue' },
-            { id: 71, product: 'Dried Red Chili', size: '', qty: '1', imageUrl: 'images/products/71.jpg', tamilName: 'வரமிளகாய்' },
-            { id: 72, product: 'Moggu', size: '', qty: '1', imageUrl: 'images/products/72.jpg', tamilName: 'மராத்தி மொக்கு' },
-            { id: 73, product: 'Kasa Kasa', size: '', qty: '1', imageUrl: 'images/products/73.jpg', tamilName: 'கச கசா' },
-            { id: 74, product: 'Narasus Tea Powder', size: '', qty: '1', imageUrl: 'images/products/74.jpg', tamilName: 'நரசுஸ் டீ தூள்' },
-            { id: 75, product: 'Anise', size: '', qty: '1', imageUrl: 'images/products/75.jpg', tamilName: 'சோம்பு' },
-            { id: 76, product: 'Chilli Powder', size: '', qty: '1', imageUrl: 'images/products/76.jpg', tamilName: 'மிளகாய் தூள்' },
-            { id: 77, product: 'Pepper', size: '', qty: '1', imageUrl: 'images/products/77.jpg', tamilName: 'மிளகு' },
-            { id: 78, product: 'Cumin', size: '', qty: '1', imageUrl: 'images/products/78.jpg', tamilName: 'சீரகம்' },
-            { id: 79, product: 'Jaggeryr', size: '', qty: '1', imageUrl: 'images/products/79.jpg', tamilName: 'வெல்லம்' },
-            { id: 80, product: 'White sesame', size: '', qty: '1', imageUrl: 'images/products/80.jpg', tamilName: 'வெள்ளை எள்ளு' },
-            { id: 81, product: 'Incense Stick', size: '', qty: '1', imageUrl: 'images/products/81.jpg', tamilName: 'ஊதுபத்தி' },
-            { id: 82, product: 'Red Cow Peas', size: '', qty: '1', imageUrl: 'images/products/82.jpg', tamilName: 'தட்டப்பயிறு' },
-            { id: 83, product: 'Comfort', size: '', qty: '1', imageUrl: 'images/products/83.jpg', tamilName: 'Comfort' },
-            { id: 84, product: 'Horse Gram', size: '', qty: '1', imageUrl: 'images/products/84.jpg', tamilName: 'கொள்ளு' },
-            { id: 85, product: 'Sambar Powder', size: '', qty: '1', imageUrl: 'images/products/85.jpg', tamilName: 'சாம்பார் பொடி' },
-            { id: 86, product: 'Dill', size: '', qty: '1', imageUrl: 'images/products/86.jpg', tamilName: 'வெந்தயம்' },
-            { id: 87, product: 'Soya Chunks', size: '', qty: '1', imageUrl: 'images/products/87.jpg', tamilName: 'மீல் மேக்கர்' },
-            { id: 88, product: 'Bajji Powder', size: '', qty: '1', imageUrl: 'images/products/88.jpg', tamilName: 'பஜ்ஜி மாவு' },
-            { id: 89, product: 'Pudding Powder', size: '', qty: '1', imageUrl: 'images/products/89.jpg', tamilName: 'கொழுக்கட்டை மாவு' },
-            { id: 90, product: 'Gulab Jamun Powder', size: '', qty: '1', imageUrl: 'images/products/90.jpg', tamilName: 'குளோபிஜமுன் பவுடர்' },
-            { id: 91, product: 'Asafoetida pieces', size: '', qty: '1', imageUrl: 'images/products/91.jpg', tamilName: 'பெருங்காயம் கட்டி' },
-            { id: 92, product: 'All Out Liquid', size: '', qty: '1', imageUrl: 'images/products/92.jpg', tamilName: 'All Out Liquid' },
-            { id: 93, product: 'Idly Rice', size: '', qty: '1', imageUrl: 'images/products/93.jpg', tamilName: 'இட்லி அரிசி' },
-            { id: 94, product: 'Pappad', size: '', qty: '1', imageUrl: 'images/products/94.jpg', tamilName: 'அப்பளம்' },
+            { id: 1, product: 'Sensodent-K Toothpaste', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/1.jpg', tamilName: 'Sensodent-K Toothpaste' },
+            { id: 2, product: 'Closeup Toothpaste', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/2.jpg', tamilName: 'Closeup Toothpaste' },
+            { id: 3, product: 'Mysore Sandal Soap', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/3.jpg', tamilName: 'Mysore Sandal சோப்பு' },
+            { id: 4, product: 'All Clear Shampoo', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/4.jpg', tamilName: 'All Clear Shampoo' },
+            { id: 5, product: 'Rin Soap', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/5.jpg', tamilName: 'Rin சோப்பு' },
+            { id: 6, product: 'Almond', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/6.jpg', tamilName: 'பாதாம்' },
+            { id: 7, product: 'Cashewnut', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/7.jpg', tamilName: 'முந்திரி' },
+            { id: 8, product: 'Rin soap Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/8.jpg', tamilName: 'Rin சோப்பு தூள்' },
+            { id: 9, product: 'Turmeric powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/9.jpg', tamilName: 'மஞ்சள் தூள்' },
+            { id: 10, product: 'GRB Ghee', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/10.jpg', tamilName: 'நெய்' },
+            { id: 11, product: 'USHA Oil', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/11.jpg', tamilName: 'உஷா ஆயில்' },
+            { id: 12, product: 'Vim Soap', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/12.jpg', tamilName: 'Vim சோப்பு' },
+            { id: 13, product: 'Hamam soap', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/13.jpg', tamilName: 'Hamam சோப்பு' },
+            { id: 14, product: 'Chick white Shampoo', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/14.jpg', tamilName: 'Chick white Shampoo' },
+            { id: 15, product: 'Roasted Gram', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/15.jpg', tamilName: 'பொட்டுகடலை' },
+            { id: 16, product: 'Stay free', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/16.jpg', tamilName: 'Stay free' },
+            { id: 17, product: 'Narasus coffee powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/17.jpg', tamilName: 'Narasus காபி தூள்' },
+            { id: 18, product: 'AASHIRVADA ATTA', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/18.jpg', tamilName: 'கோதுமை மாவு' },
+            { id: 19, product: 'Mustard', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/19.jpg', tamilName: 'கடுகு' },
+            { id: 20, product: 'LG asafoetida', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/20.jpg', tamilName: 'LG பெருங்காயம்' },
+            { id: 21, product: 'pigeon pea', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/21.jpg', tamilName: 'துவரம் பருப்பு' },
+            { id: 22, product: 'Johnson baby powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/22.jpg', tamilName: 'Johnson baby powder' },
+            { id: 23, product: 'Johnson baby soap', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/23.jpg', tamilName: 'Johnson baby சோப்பு' },
+            { id: 24, product: 'Gram flour', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/24.jpg', tamilName: 'கடலை மாவு' },
+            { id: 25, product: 'moong dal', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/25.jpg', tamilName: 'பாசிபருப்பு' },
+            { id: 26, product: 'Groundnut', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/26.jpg', tamilName: 'நிலக்கடலை' },
+            { id: 27, product: 'wheat Rava', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/27.jpg', tamilName: 'கோதுமை ரவை' },
+            { id: 28, product: 'Black Rice', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/28.jpg', tamilName: 'கருப்பு கவுனி அரிசி' },
+            { id: 29, product: 'Rava', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/29.jpg', tamilName: 'ரவை' },
+            { id: 30, product: 'Uma semiya', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/30.jpg', tamilName: 'சேமியா' },
+            { id: 31, product: 'Corn flour', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/31.jpg', tamilName: 'கார்ன் பிளவர்' },
+            { id: 32, product: 'Maida', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/32.jpg', tamilName: 'மைதா மாவு' },
+            { id: 33, product: 'Rice flour', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/33.jpg', tamilName: 'அரிசி மாவு' },
+            { id: 34, product: 'Muyal castor oil', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/34.jpg', tamilName: 'முயல் விளக்கெண்ணெய்' },
+            { id: 35, product: 'Vicco turmeric', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/35.jpg', tamilName: 'Vicco turmeric' },
+            { id: 36, product: 'Sakthi curry masala', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/36.jpg', tamilName: 'கறி மசால் பொடி' },
+            { id: 37, product: 'Sakthi chicken masala', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/37.jpg', tamilName: 'சிக்கன் மசாலா தூள்' },
+            { id: 38, product: 'Sakthi Mutton masala', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/38.jpg', tamilName: 'மட்டன் மசாலா தூள்' },
+            { id: 39, product: 'Sakthi Biriyani masala', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/39.jpg', tamilName: 'பிரியாணி மசாலா தூள்' },
+            { id: 40, product: 'Green Gram', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/40.jpg', tamilName: 'பச்சை பயிறு' },
+            { id: 41, product: 'Green Peas', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/41.jpg', tamilName: 'பச்சை பட்டாணி' },
+            { id: 42, product: 'White peas', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/42.jpg', tamilName: 'வெள்ளை பட்டாணி' },
+            { id: 43, product: 'black beans', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/43.jpg', tamilName: 'கருப்பு பீன்ஸ்' },
+            { id: 44, product: 'White chickpeas', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/44.jpg', tamilName: 'பெரிய வெள்ளை மூக்கடலை' },
+            { id: 45, product: 'Red chickpeas', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/45.jpg', tamilName: 'சிறிய சிவப்பு மூக்கடலை' },
+            { id: 46, product: 'VVD Coconut Oil', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/46.jpg', tamilName: 'VVD தேங்காய் எண்ணெய்' },
+            { id: 47, product: 'Cardamom', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/47.jpg', tamilName: 'ஏலக்காய்' },
+            { id: 48, product: 'Garlic', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/48.jpg', tamilName: 'பூண்டு' },
+            { id: 49, product: 'Dettol', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/49.jpg', tamilName: 'Dettol' },
+            { id: 50, product: 'Pithambari', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/50.jpg', tamilName: 'Pithambari' },
+            { id: 51, product: 'Deepam Oil', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/51.jpg', tamilName: 'தீபம் எண்ணெய்' },
+            { id: 52, product: 'Broken Urad dhal', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/52.jpg', tamilName: 'உடைத்த உளுத்தம் பருப்பு' },
+            { id: 53, product: 'Urd dhal', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/53.jpg', tamilName: 'உளுத்தம் பருப்பு' },
+            { id: 54, product: 'Tamarind', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/54.jpg', tamilName: 'புளி' },
+            { id: 55, product: 'Rock salt', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/55.jpg', tamilName: 'கல் உப்பு' },
+            { id: 56, product: 'Powder salt', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/56.jpg', tamilName: 'தூள் உப்பு' },
+            { id: 57, product: 'Bengal gram dal', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/57.jpg', tamilName: 'கள்ளப்பருப்பு' },
+            { id: 58, product: 'Poha', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/58.jpg', tamilName: 'அவுல்' },
+            { id: 59, product: 'Green Rice', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/59.jpg', tamilName: 'பச்சரிசி' },
+            { id: 60, product: 'Gokul Santol Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/60.jpg', tamilName: 'Gokul Santol Powder' },
+            { id: 61, product: 'Spinz BB Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/61.jpg', tamilName: 'Spinz BB Powder' },
+            { id: 62, product: 'VIP Hair Colour Dye', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/62.jpg', tamilName: 'VIP Hair Colour Dye' },
+            { id: 63, product: 'Bay Leaf', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/63.jpg', tamilName: 'பிரியாணி இலை' },
+            { id: 64, product: 'cinnamon', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/64.jpg', tamilName: 'பட்டை' },
+            { id: 65, product: 'Clove', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/65.jpg', tamilName: 'லவங்கம்' },
+            { id: 66, product: 'Star Anise', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/66.jpg', tamilName: 'அன்னாசிப் பூ' },
+            { id: 67, product: 'Black Stone Flower', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/67.jpg', tamilName: 'கல்பசி' },
+            { id: 68, product: 'Coriander Seeds', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/68.jpg', tamilName: 'வர கொத்தமல்லி' },
+            { id: 69, product: 'Harpic Red', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/69.jpg', tamilName: 'Harpic Red' },
+            { id: 70, product: 'Harpic Blue', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/70.jpg', tamilName: 'Harpic Blue' },
+            { id: 71, product: 'Dried Red Chili', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/71.jpg', tamilName: 'வரமிளகாய்' },
+            { id: 72, product: 'Moggu', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/72.jpg', tamilName: 'மராத்தி மொக்கு' },
+            { id: 73, product: 'Kasa Kasa', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/73.jpg', tamilName: 'கச கசா' },
+            { id: 74, product: 'Narasus Tea Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/74.jpg', tamilName: 'நரசுஸ் டீ தூள்' },
+            { id: 75, product: 'Anise', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/75.jpg', tamilName: 'சோம்பு' },
+            { id: 76, product: 'Chilli Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/76.jpg', tamilName: 'மிளகாய் தூள்' },
+            { id: 77, product: 'Pepper', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/77.jpg', tamilName: 'மிளகு' },
+            { id: 78, product: 'Cumin', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/78.jpg', tamilName: 'சீரகம்' },
+            { id: 79, product: 'Jaggeryr', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/79.jpg', tamilName: 'வெல்லம்' },
+            { id: 80, product: 'White sesame', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/80.jpg', tamilName: 'வெள்ளை எள்ளு' },
+            { id: 81, product: 'Incense Stick', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/81.jpg', tamilName: 'ஊதுபத்தி' },
+            { id: 82, product: 'Red Cow Peas', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/82.jpg', tamilName: 'தட்டப்பயிறு' },
+            { id: 83, product: 'Comfort', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/83.jpg', tamilName: 'Comfort' },
+            { id: 84, product: 'Horse Gram', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/84.jpg', tamilName: 'கொள்ளு' },
+            { id: 85, product: 'Sambar Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/85.jpg', tamilName: 'சாம்பார் பொடி' },
+            { id: 86, product: 'Dill', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/86.jpg', tamilName: 'வெந்தயம்' },
+            { id: 87, product: 'Soya Chunks', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/87.jpg', tamilName: 'மீல் மேக்கர்' },
+            { id: 88, product: 'Bajji Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/88.jpg', tamilName: 'பஜ்ஜி மாவு' },
+            { id: 89, product: 'Pudding Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/89.jpg', tamilName: 'கொழுக்கட்டை மாவு' },
+            { id: 90, product: 'Gulab Jamun Powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/90.jpg', tamilName: 'குளோபிஜமுன் பவுடர்' },
+            { id: 91, product: 'Asafoetida pieces', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/91.jpg', tamilName: 'பெருங்காயம் கட்டி' },
+            { id: 92, product: 'All Out Liquid', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/92.jpg', tamilName: 'All Out Liquid' },
+            { id: 93, product: 'Idly Rice', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/93.jpg', tamilName: 'இட்லி அரிசி' },
+            { id: 94, product: 'Pappad', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/94.jpg', tamilName: 'அப்பளம்' },
         ],
     },
     created() {
-        // Load cart from localStorage
         const savedCart = localStorage.getItem('cart');
         if (savedCart) {
             this.selectedProducts = JSON.parse(savedCart);
 
-            // Sync values back into mainProducts
             this.selectedProducts.forEach(saved => {
                 let main = this.mainProducts.find(p => p.id === saved.id);
                 if (main) {
                     main.qty = saved.qty;
                     main.size = saved.size;
+                    main.sizeValue = saved.sizeValue || '';
+                    main.sizeUnit = saved.sizeUnit || '';
                 }
             });
         }
@@ -203,9 +203,17 @@ var vm = new Vue({
             }
         },
         syncSizeWithCart(product) {
+            // Build the combined size string
+            product.size =
+                (product.sizeValue ? product.sizeValue.trim() : '') +
+                (product.sizeUnit ? ' ' + product.sizeUnit : '');
+
+            // Update in cart
             const existing = this.selectedProducts.find(p => p.id === product.id);
             if (existing) {
                 existing.size = product.size;
+                existing.sizeValue = product.sizeValue;
+                existing.sizeUnit = product.sizeUnit;
                 notyf.success(`Size updated for "${product.product}"`);
             }
         },
@@ -219,12 +227,16 @@ var vm = new Vue({
             if (existing) {
                 existing.qty = product.qty;
                 existing.size = product.size;
+                existing.sizeValue = product.sizeValue;
+                existing.sizeUnit = product.sizeUnit;
                 notyf.success(`Updated quantity/size for "${product.product}"`);
             } else {
                 this.selectedProducts.push({
                     id: product.id,
                     name: product.tamilName,
                     size: product.size,
+                    sizeValue: product.sizeValue,
+                    sizeUnit: product.sizeUnit,
                     qty: product.qty,
                     imageUrl: product.imageUrl
                 });
@@ -237,11 +249,13 @@ var vm = new Vue({
             if (productInCart) {
                 this.selectedProducts = this.selectedProducts.filter(p => p.id !== id);
 
-                // Reset qty and size in mainProducts (to reset the UI)
+                // Reset qty and size in mainProducts
                 const productInMain = this.mainProducts.find(p => p.id === id);
                 if (productInMain) {
-                    productInMain.qty = '1';
+                    productInMain.qty = 1;
                     productInMain.size = '';
+                    productInMain.sizeValue = '';
+                    productInMain.sizeUnit = '';
                 }
 
                 notyf.error(`"${productInCart.name}" removed from cart`);
@@ -384,8 +398,8 @@ var vm = new Vue({
             <tr>
                 <th style='width:5%;'>Sl.No</th>
                 <th style='width:50%;'>Product</th>
-                <th style='width:10%;'>Qty / Size</th>
                 <th style='width:20%;'>Size</th>
+                <th style='width:10%;'>Qty</th>
                 <th style='width:15%;'>Price</th>
             </tr>
         `;
@@ -397,8 +411,8 @@ var vm = new Vue({
                     row.innerHTML = `
                 <td>${currentIndex + index + 1}</td>
                 <td>${item.name}</td>
-                <td>${item.qty}</td>
                 <td>${item.size}</td>
+                <td>${item.qty}</td>
                 <td></td>
             `;
                     tbody.appendChild(row);
