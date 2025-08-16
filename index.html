@@ -74,7 +74,7 @@
                             <div class="product-card-header">
                                 <img :src="val.imageUrl" alt="product-image" @load="hideLoader($event)"
                                     @error="showError($event)">
-                                <div class="img-loader">Loading...</div>
+                                <div class="img-loader"></div>
                             </div>
                             <div class="product-card-body">
                                 {{ val.tamilName }}
@@ -140,7 +140,7 @@
     <script src="script/script.js"></script>
 
     <script>
-        DisableDevtool();
+        //DisableDevtool();
     </script>
 </body>
 
