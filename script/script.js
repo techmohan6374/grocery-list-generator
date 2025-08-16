@@ -411,7 +411,7 @@ var vm = new Vue({
                     row.innerHTML = `
                 <td>${currentIndex + index + 1}</td>
                 <td>${item.name}</td>
-                <td>${item.size}</td>
+                <td>${item.size ?? ''}</td>
                 <td>${item.qty}</td>
                 <td></td>
             `;
