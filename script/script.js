@@ -7,6 +7,7 @@ var notyf = new Notyf({
 var vm = new Vue({
     el: '#app',
     data: {
+        isToggled: false,
         searchQuery: "",
         sizeValuesForDrpDwn: [
             'சரம்', 'கிலோ', 'கிராம்', 'மில்லி லிட்டர்', 'பெரியது', 'சிறியது', 'பாக்ஸ்', 'பெரிய பாக்ஸ்', 'சிறிய பாக்ஸ்', 'பாக்கெட்'
@@ -106,7 +107,10 @@ var vm = new Vue({
             { id: 91, product: 'Asafoetida pieces', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/91.jpg', tamilName: 'பெருங்காயம் கட்டி' },
             { id: 92, product: 'All Out Liquid', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/92.jpg', tamilName: 'All Out Liquid' },
             { id: 93, product: 'Idly Rice', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/93.jpg', tamilName: 'இட்லி அரிசி' },
-            { id: 94, product: 'Pappad', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/94.jpg', tamilName: 'அப்பளம்' },
+            { id: 94, product: 'Pappad', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/94.jpg', tamilName: 'ஜனதா அப்பளம்' },
+            { id: 95, product: 'Palm Jaggery', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/95.jpg', tamilName: 'பனை வெல்லம்' },
+            { id: 96, product: 'Pattai Rusk', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/96.jpg', tamilName: 'பட்டை ரஸ்க்' },
+            { id: 97, product: 'Broom', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/97.jpg', tamilName: 'துடைப்பம்' },
         ],
     },
     created() {
@@ -136,11 +140,20 @@ var vm = new Vue({
     },
     computed: {
         filteredProducts() {
-            if (!this.searchQuery) return this.mainProducts;
-            return this.mainProducts.filter(p =>
-                p.product.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-                p.tamilName.includes(this.searchQuery)
-            );
+            let products = this.mainProducts;
+
+            if (this.searchQuery) {
+                products = products.filter(p =>
+                    p.product.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                    p.tamilName.includes(this.searchQuery)
+                );
+            }
+
+            if (this.isToggled) {
+                return products.filter(p => !this.isInCart(p.id));
+            }
+
+            return products;
         },
         cartCount() {
             return this.selectedProducts.length;

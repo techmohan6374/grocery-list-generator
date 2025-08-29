@@ -375,6 +375,40 @@
     height: 25px;
 }
 
+.toggle-container {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.toggle-track {
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #333233;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-track.on {
+    background-color: #679625;
+}
+
+.toggle-circle {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+}
+
+.toggle-track.on .toggle-circle {
+    left: 30px;
+}
+
 @media screen and (min-width:1024px) {
     .container-fluid .header {
         font-size: 25px;

@@ -57,6 +57,11 @@
                     Generate PDF
                 </button>
                 Total Products : {{totalProductCount}}
+                <div class="toggle-container" v-on:click="isToggled = !isToggled">
+                    <div class="toggle-track" :class="{ on: isToggled }">
+                        <div class="toggle-circle"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row p-0 m-0 main-product-div">
