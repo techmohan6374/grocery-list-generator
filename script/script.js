@@ -31,7 +31,7 @@ var vm = new Vue({
             { id: 15, product: 'Roasted Gram', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/15.jpg', tamilName: 'பொட்டுகடலை' },
             { id: 16, product: 'Stay free', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/16.jpg', tamilName: 'Stay free' },
             { id: 17, product: 'Narasus coffee powder', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/17.jpg', tamilName: 'Narasus காபி தூள்' },
-            { id: 18, product: 'AASHIRVADA ATTA', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/18.jpg', tamilName: 'கோதுமை மாவு' },
+            { id: 18, product: 'AASHIRVADA ATTA', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/18.jpg', tamilName: 'AASHIRVADA கோதுமை மாவு' },
             { id: 19, product: 'Mustard', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/19.jpg', tamilName: 'கடுகு' },
             { id: 20, product: 'LG asafoetida', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/20.jpg', tamilName: 'LG பெருங்காயம்' },
             { id: 21, product: 'pigeon pea', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/21.jpg', tamilName: 'துவரம் பருப்பு' },
@@ -111,6 +111,7 @@ var vm = new Vue({
             { id: 95, product: 'Palm Jaggery', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/95.jpg', tamilName: 'பனை வெல்லம்' },
             { id: 96, product: 'Pattai Rusk', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/96.jpg', tamilName: 'பட்டை ரஸ்க்' },
             { id: 97, product: 'Broom', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/97.jpg', tamilName: 'துடைப்பம்' },
+            { id: 98, product: 'Colgate Toothpaste', sizeValue: '', sizeUnit: '', qty: '1', imageUrl: 'images/products/98.jpg', tamilName: 'Colgate Toothpaste' },
         ],
     },
     created() {
